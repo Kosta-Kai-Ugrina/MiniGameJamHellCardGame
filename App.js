@@ -11,6 +11,7 @@ import {
 import { Audio } from "expo-av";
 import { render } from "react-dom";
 import IntroScreen from "./app/src/screens/Intro";
+import GameScreen from "./app/src/screens/Game";
 
 // async function playSound(sound) {
 //   console.log("Loading Sound");
@@ -21,19 +22,5 @@ import IntroScreen from "./app/src/screens/Intro";
 // }
 
 export default function App() {
-  return <IntroScreen />;
+  return <GameScreen />;
 }
-
-const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

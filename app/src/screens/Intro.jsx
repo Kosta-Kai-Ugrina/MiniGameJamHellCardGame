@@ -1,14 +1,14 @@
 import React from "react";
+import { Text, SafeAreaView, ImageBackground, StyleSheet } from "react-native";
 
 export default function IntroScreen() {
   return (
     <ImageBackground
-      source={require("./app/assets/fireBackground.gif")}
+      source={require("../../assets/fireBackground.gif")}
       style={styles.background}
     >
       <SafeAreaView style={styles.container}>
         <Text style={{ color: "white" }}>Juda muda guda ruda</Text>
-        <StatusBar style="dark" />
       </SafeAreaView>
     </ImageBackground>
   );
