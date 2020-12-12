@@ -9,13 +9,13 @@
         "key" : "2",
         "name" : "Magmarath The Lifegiver",
         "combatStrength" : "2",
-        "imgName" : "devil2.jpg"
+        "imgName" : "devil2.gif"
     },
     {
         "key" : "3",
         "name" : "Urak'Kar Rashata",
         "combatStrength" : "7",
-        "imgName" : "devil3.jpg"
+        "imgName" : "devil3.png"
     },
     {
         "key" : "4",

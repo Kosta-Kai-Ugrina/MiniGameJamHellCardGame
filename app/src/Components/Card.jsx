@@ -9,7 +9,7 @@ import {
 
 export default function Card({ name, combatStrength, image, onPress }) {
   return (
-    <TouchableHighlight onPress={onPress}>
+    <TouchableHighlight style={{ borderRadius: 10 }} onPress={onPress}>
       <View style={styles.background}>
         <Image source={image} style={styles.image} />
         <Text style={styles.name}>{name}</Text>
@@ -21,23 +21,23 @@ export default function Card({ name, combatStrength, image, onPress }) {
 
 const styles = StyleSheet.create({
   background: {
-    width: 100,
-    height: 160,
+    width: 80,
+    height: 130,
     borderRadius: 10,
     backgroundColor: "#f00",
     alignItems: "center",
     justifyContent: "center",
   },
   image: {
+    flex: 4,
     width: "80%",
-    flex: 3,
-    margin: 10,
+    margin: 5,
     borderRadius: 10,
     resizeMode: "stretch",
   },
   name: {
     flex: 2,
-    fontSize: 10,
+    fontSize: 8,
     fontWeight: "bold",
     color: "white",
     textAlign: "center",
@@ -46,12 +46,10 @@ const styles = StyleSheet.create({
     flex: 2,
     alignSelf: "stretch",
     textAlign: "center",
-    alignItems: "center",
-    justifyContent: "center",
     marginHorizontal: 15,
     marginBottom: 10,
     backgroundColor: "#f77",
-    fontSize: 30,
+    fontSize: 15,
     fontWeight: "bold",
     color: "white",
   },
