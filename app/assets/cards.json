@@ -1,0 +1,32 @@
+[
+    {
+        "key" : "1",
+        "name" : "Saldazar The Obliterator",
+        "combatStrength" : "4",
+        "imgName" : "devil1.jpg"
+    },
+    {
+        "key" : "2",
+        "name" : "Magmarath The Lifegiver",
+        "combatStrength" : "2",
+        "imgName" : "devil2.jpg"
+    },
+    {
+        "key" : "3",
+        "name" : "Urak'Kar Rashata",
+        "combatStrength" : "7",
+        "imgName" : "devil3.jpg"
+    },
+    {
+        "key" : "4",
+        "name" : "Literally Satan",
+        "combatStrength" : "9",
+        "imgName" : "devil4.jpg"
+    },
+    {
+        "key" : "5",
+        "name" : "El Diablo",
+        "combatStrength" : "10",
+        "imgName" : "devil1.jpg"
+    }
+]

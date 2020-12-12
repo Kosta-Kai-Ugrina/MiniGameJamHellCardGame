@@ -7,11 +7,11 @@ import {
   TouchableHighlight,
 } from "react-native";
 
-export default function Card({ name, combatStrength, imgPath, onPress }) {
+export default function Card({ name, combatStrength, image, onPress }) {
   return (
-    <TouchableHighlight onPress={onPress()}>
+    <TouchableHighlight onPress={onPress}>
       <View style={styles.background}>
-        <Image source={require("../../assets/devil1.jpg")} style={styles.img} />
+        <Image source={image} style={styles.image} />
         <Text style={styles.name}>{name}</Text>
         <Text style={styles.combatStrength}>{combatStrength}</Text>
       </View>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  img: {
+  image: {
     width: "80%",
     flex: 3,
     margin: 10,
