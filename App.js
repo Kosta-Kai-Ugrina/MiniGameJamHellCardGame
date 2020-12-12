@@ -1,25 +1,27 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { Component, useState } from "react";
 import {
   ImageBackground,
   SafeAreaView,
   StyleSheet,
   Text,
   View,
+  Button,
 } from "react-native";
+import { Audio } from "expo-av";
+import { render } from "react-dom";
+import IntroScreen from "./app/src/screens/Intro";
+
+// async function playSound(sound) {
+//   console.log("Loading Sound");
+//   sound = await Audio.Sound.createAsync(require("./app/assets/music.mp3"));
+
+//   console.log("Playing Sound");
+//   await sound.playAsync();
+// }
 
 export default function App() {
-  return (
-    <ImageBackground
-      source={require("./app/assets/fireBackground.gif")}
-      style={styles.background}
-    >
-      <SafeAreaView style={styles.container}>
-        <Text style={{ color: "white" }}>Juda muda guda ruda</Text>
-        <StatusBar style="dark" />
-      </SafeAreaView>
-    </ImageBackground>
-  );
+  return <IntroScreen />;
 }
 
 const styles = StyleSheet.create({
