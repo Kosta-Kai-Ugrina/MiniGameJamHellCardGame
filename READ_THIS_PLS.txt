@@ -1,0 +1,77 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                          HELL GAME - ASSIGNMENTS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+_______________________________________________________________________________
+RULES OF THE GAME
+
+This is a card game in which a player plays against a the AI.
+
+The game consists of as many rounds as there are cards.
+Each round consists of each player playing one card.
+After both players play a card, the winner of the round is determined
+based on who played a card with the greater Combat Strength property.
+If the combat strengths are the same, the human player wins by default.
+The player who wins the most rounds wins the game.
+The AI player always plays first.
+The AI plays the cards he's been given in random order.
+
+"Kosta, this game is somehow even dumber than Gwent!"
+I know, and I don't care, we have 1 day to finish this.
+
+_______________________________________________________________________________
+APPLICATION ARCHITECTURE
+
+App.js          Simply calls the appropriate screen, as it should.
+
+Intro.jsx       Intro screen: when you click the "Play" buttton, it take you
+                to the Game screen
+
+Game.jsx        Game screen: this is where the game is played; the display 
+                idea as of now is as follows:
+                The screen consists of:
+                    a) a row of cards on the button that you can
+                    click on (when appropriate),
+                    b) a central area where you can see what 
+                    card the AI player has played
+                    c) a score counter in the 
+                    top-right/top-left side of the screen
+                When you win/lose, the GameOver screen should be called.
+                Feel free to change this layout if you have better ideas.
+
+GameOver.jsx    GameOver screen: displays "You Win" or "You lose".
+
+Card.jsx        A card you play with: as of now, it has the following core
+                properties:
+                    - key: the unique value of the card, used as an ID;
+                    I'm still can't find how to access it though.
+                    - name: the name of the devil on the card
+                    - image: the image of the devil on the card
+                    - combatStrength: the combat strength of the devil on
+                    the card, which will be used to determine the winner of
+                    the round
+                    - onPress: function that triggers when you click on the
+                    card
+
+cards.json      A file that contains the data for creating cards used in the
+                game
+
+_______________________________________________________________________________
+ASSIGNMENTS
+
+Frederik:       1 - Fill up the cards.json file with cards, making sure the 
+                    combat strengths of cards have a semi-normal distribution.
+                2 - Scrape the internet for devil pictures.
+                3 - Find a better background for the cards.
+                4 - Spruce up the style of things that look ugly to you.
+                5 - Design the GameOver screen. It needs to take one prop at
+                least, and that is the hasWon prop, which determines whether
+                it will display "You win" or "You lose". Spruce it up also.
+                6 - If there is anything more you can do, do it. Eugenija is
+                swamped as-is.
+
+Eugenija:       Do everything I haven't done myself.
+
+                                                        Best of luck,
+                                                            Kosta King
