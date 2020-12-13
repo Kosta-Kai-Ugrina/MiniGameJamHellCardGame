@@ -1,27 +1,27 @@
-import React from 'react';
-import { ImageBackground, StyleSheet } from 'react-native';
+import React from "react";
+import { ImageBackground, StyleSheet } from "react-native";
 
-export default function GameOver() {
+export default function GameOver({ isWin }) {
+  if (!isWin) {
     return (
-        <ImageBackground 
+      <ImageBackground
+        style={styles.container}
         source={require("./assets/GameOver.jpg")}
-        ></ImageBackground>
-    )
-}
-
-export default function Win() {
+      ></ImageBackground>
+    );
+  } else {
     return (
-        <ImageBackground
+      <ImageBackground
+        style={styles.container}
         source={require("./assets/Win.png")}
-        ></ImageBackground>
-    )     
+      ></ImageBackground>
+    );
+  }
 }
-
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "#fff",
-        justifyContent: "center",
-        alignItems: "center",
-    }
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
