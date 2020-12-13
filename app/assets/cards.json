@@ -27,6 +27,96 @@
         "key" : "5",
         "name" : "El Diablo",
         "combatStrength" : "10",
-        "imgName" : "devil1.jpg"
+        "imgName" : "devil19.jpg"
+    },
+    {
+        "key" : "6",
+        "name" : "Behemoth The Beast",
+        "combatStrength" : "9",
+        "imgName" : "devil20.jpg"
+    },
+    {
+        "key" : "7",
+        "name" : "Leviathan The Envious",
+        "combatStrength" : "8",
+        "imgName" : "devil12.jpg"
+    },
+    {
+        "key" : "8",
+        "name" : "Beelzebub The Glutton",
+        "combatStrength" : "4",
+        "imgName" : "devil16.jpg"
+    },
+    {
+        "key" : "9",
+        "name" : "Pytho",
+        "combatStrength" : "5",
+        "imgName" : "devil14.jpg"
+    },
+    {
+        "key" : "10",
+        "name" : "Belial",
+        "combatStrength" : "2",
+        "imgName" : "devil17.jpg"
+    },
+    {
+        "key" : "11",
+        "name" : "Belphegor The Slothful",
+        "combatStrength" : "1",
+        "imgName" : "devil9.jpg"
+    },
+    {
+        "key" : "12",
+        "name" : "Asmodeus The Avenger",
+        "combatStrength" : "7",
+        "imgName" : "devil18.jpg"
+    },
+    {
+        "key" : "13",
+        "name" : "Merihem The Pestilent",
+        "combatStrength" : "6",
+        "imgName" : "devil6.jpg"
+    },
+    {
+        "key" : "14",
+        "name" : "Mammon The Malignant",
+        "combatStrength" : "5",
+        "imgName" : "devil5.jpg"
+    },
+    {
+        "key" : "15",
+        "name" : "Astaroth The Liar",
+        "combatStrength" : "3",
+        "imgName" : "devil7.jpg"
+    },
+    {
+        "key" : "16",
+        "name" : "Lucifer The Prideful",
+        "combatStrength" : "8",
+        "imgName" : "devil19.jpg"
+    },
+    {
+        "key" : "17",
+        "name" : "Berith The Murderer",
+        "combatStrength" : "6",
+        "imgName" : "devil8.jpg"
+    },
+    {
+        "key" : "18",
+        "name" : "Gressil The Impure",
+        "combatStrength" : "5",
+        "imgName" : "devil10.jpg"
+    },
+    {
+        "key" : "19",
+        "name" : "Soneillon The Hater",
+        "combatStrength" : "2",
+        "imgName" : "devil11.jpg"
+    },
+    {
+        "key" : "20",
+        "name" : "Azazel The Tempest",
+        "combatStrength" : "7",
+        "imgName" : "devil13.jpg"
     }
 ]
