@@ -1,21 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { ImageBackground, StyleSheet, View } from "react-native";
 import Card from "../Components/Card";
 
 const assetsPath = "../../assets/";
 const cardsPath = assetsPath + "cards.json";
+const background = require(assetsPath + "fireBackground.gif");
+
+const totalCardsInHand = 2;
+const cards = shuffleArray(getCards());
+const images = getImages();
 
 export default function GameScreen() {
-  const cards = getCards();
-  const images = getImages();
+  const [playerCards, setPlayerCards] = useState(
+    cards.filter((val, index, arr) => {
+      return index < totalCardsInHand;
+    })
+  );
+
+  const [aiCards, setAiCards] = useState(
+    cards.filter((val, index, arr) => {
+      return index >= totalCardsInHand && index < 2 * totalCardsInHand;
+    })
+  );
+
+  console.log("playerCards\n", playerCards, "\n\n");
+  console.log("aiCards\n", aiCards, "\n\n");
+
   return (
-    <ImageBackground
-      source={require("../../assets/fireBackground.gif")}
-      style={styles.background}
-    >
+    <ImageBackground source={background} style={styles.background}>
       <View style={styles.background}>
         <View style={styles.playerCardContainer}>
-          {cards.map((data) => {
+          {playerCards.map((data) => {
             return (
               <Card
                 key={parseInt(data.key)}
@@ -55,7 +70,6 @@ const styles = StyleSheet.create({
 
 function getCards() {
   const pData = require(cardsPath);
-  console.log(pData);
   return pData;
 }
 
@@ -67,4 +81,14 @@ function getImages() {
   images.push(require("../../assets/devil4.jpg"));
   images.push(require("../../assets/devil1.jpg"));
   return images;
+}
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
 }
