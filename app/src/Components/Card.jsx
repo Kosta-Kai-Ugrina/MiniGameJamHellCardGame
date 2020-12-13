@@ -9,7 +9,7 @@ import {
 
 export default function Card({ name, combatStrength, image, onPress }) {
   return (
-    <TouchableHighlight style={{ borderRadius: 10 }} onPress={onPress}>
+    <TouchableHighlight style={{ borderRadius: 10 }} onPress={() => {onPress(combatStrength, name)} }>
       <View style={styles.background}>
         <Image source={image} style={styles.image} />
         <Text style={styles.name}>{name}</Text>

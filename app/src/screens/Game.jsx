@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
+import { ImageBackground, StyleSheet, View, Text } from "react-native";
 import Card from "../Components/Card";
 
 const assetsPath = "../../assets/";
@@ -30,6 +30,7 @@ export default function GameScreen() {
   return (
     <ImageBackground source={background} style={styles.background}>
       <View style={styles.background}>
+        <View><Text style={styles.text}>{score} / {totalCardsInHand}</Text></View>
         <View style={styles.aiCard}>
           <Card
             key={parseInt(curAiCard.key)}
@@ -83,13 +84,16 @@ const styles = StyleSheet.create({
   aiCard: {
     position: "absolute",
     top: 20,
-    left: 145,
+    left: 0,
+  },
+  text: {
+    color: "white",
+    fontSize: 42,
+    fontWeight: "bold",
+    textAlign: "center",
+    backgroundColor: "#000000a0",
   }
 });
-
-function playAiCard(card) {
- 
-}
 
 function getCards() {
   const pData = require(cardsPath);
