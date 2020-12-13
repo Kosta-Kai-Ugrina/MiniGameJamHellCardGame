@@ -6,7 +6,7 @@ const assetsPath = "../../assets/";
 const cardsPath = assetsPath + "cards.json";
 const background = require(assetsPath + "fireBackground.gif");
 
-const totalCardsInHand = 2;
+const totalCardsInHand = 7;
 const cards = shuffleArray(getCards());
 const images = getImages();
 
@@ -102,7 +102,22 @@ function getImages() {
   images.push(require("../../assets/devil2.gif"));
   images.push(require("../../assets/devil3.png"));
   images.push(require("../../assets/devil4.jpg"));
-  images.push(require("../../assets/devil1.jpg"));
+  images.push(require("../../assets/devil5.jpg"));
+  images.push(require("../../assets/devil6.jpg"));
+  images.push(require("../../assets/devil7.jpg"));
+  images.push(require("../../assets/devil8.jpg"));
+  images.push(require("../../assets/devil9.jpg"));
+  images.push(require("../../assets/devil10.jpg"));
+  images.push(require("../../assets/devil11.jpg"));
+  images.push(require("../../assets/devil12.jpg"));
+  images.push(require("../../assets/devil13.jpg"));
+  images.push(require("../../assets/devil14.jpg"));
+  images.push(require("../../assets/devil15.jpg"));
+  images.push(require("../../assets/devil16.jpg"));
+  images.push(require("../../assets/devil17.jpg"));
+  images.push(require("../../assets/devil18.jpg"));
+  images.push(require("../../assets/devil19.jpg"));
+  images.push(require("../../assets/devil20.jpg"));
   return images;
 }
 
