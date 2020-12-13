@@ -12,8 +12,6 @@ import { Audio } from "expo-av";
 import { render } from "react-dom";
 import IntroScreen from "./app/src/screens/Intro";
 import GameScreen from "./app/src/screens/Game";
-import Gameover from "./app/src/screens/GameOver";
-import Win from "./app/src/screens/GameOver";
 
 // async function playSound(sound) {
 //   console.log("Loading Sound");

@@ -6,14 +6,14 @@ export default function GameOver({ isWin }) {
     return (
       <ImageBackground
         style={styles.container}
-        source={require("./assets/GameOver.jpg")}
+        source={require("../../assets/GameOver.jpg")}
       ></ImageBackground>
     );
   } else {
     return (
       <ImageBackground
         style={styles.container}
-        source={require("./assets/Win.png")}
+        source={require("../../assets/Win.png")}
       ></ImageBackground>
     );
   }

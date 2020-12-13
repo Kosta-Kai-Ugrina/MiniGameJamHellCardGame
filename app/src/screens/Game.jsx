@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { ImageBackground, StyleSheet, View, Text } from "react-native";
 import Card from "../Components/Card";
+import Win from "../screens/GameOver";
+import GameOver from "../screens/GameOver";
 
 const assetsPath = "../../assets/";
 const cardsPath = assetsPath + "cards.json";
@@ -23,6 +25,7 @@ export default function GameScreen() {
     })
   );
   const [score, setScore] = useState(0);
+  const [rm, setRm] = useState(0);
   const [curAiCard, setCurAiCard] = useState(aiCards[0]);
   console.log("playerCards\n", playerCards, "\n\n");
   console.log("aiCards\n", aiCards, "\n\n");
@@ -30,6 +33,7 @@ export default function GameScreen() {
   return (
     <ImageBackground source={background} style={styles.background}>
       <View style={styles.background}>
+
         <View><Text style={styles.text}>{score} / {totalCardsInHand}</Text></View>
         <View style={styles.aiCard}>
           <Card
@@ -51,9 +55,13 @@ export default function GameScreen() {
                   if (combatStrength >= aiCards[0].combatStrength) {
                     setScore(score + 1);
                   }
+                  if (playerCards.length === 0)
+                    return <GameOver/>
                   setPlayerCards(playerCards.filter((val) => (val.name !== name)));
+                  setRm(rm + 1);
                   setAiCards(aiCards.filter((val, index) => (index !== 0)));
                   setCurAiCard(aiCards[0]);
+                 
                 }}
               />
             );
