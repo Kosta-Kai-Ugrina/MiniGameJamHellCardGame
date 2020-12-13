@@ -22,13 +22,22 @@ export default function GameScreen() {
       return index >= totalCardsInHand && index < 2 * totalCardsInHand;
     })
   );
-
+  const [score, setScore] = useState(0);
+  const [curAiCard, setCurAiCard] = useState(aiCards[0]);
   console.log("playerCards\n", playerCards, "\n\n");
   console.log("aiCards\n", aiCards, "\n\n");
 
   return (
     <ImageBackground source={background} style={styles.background}>
       <View style={styles.background}>
+        <View style={styles.aiCard}>
+          <Card
+            key={parseInt(curAiCard.key)}
+            name={curAiCard.name}
+            combatStrength={curAiCard.combatStrength}
+            image={images[parseInt(curAiCard.key) - 1]}
+          />
+        </View>
         <View style={styles.playerCardContainer}>
           {playerCards.map((data) => {
             return (
@@ -37,8 +46,13 @@ export default function GameScreen() {
                 name={data.name}
                 combatStrength={parseInt(data.combatStrength)}
                 image={images[parseInt(data.key) - 1]}
-                onPress={() => {
-                  console.log("CARD PRESSED");
+                onPress={(combatStrength, name) => {
+                  if (combatStrength >= aiCards[0].combatStrength) {
+                    setScore(score + 1);
+                  }
+                  setPlayerCards(playerCards.filter((val) => (val.name !== name)));
+                  setAiCards(aiCards.filter((val, index) => (index !== 0)));
+                  setCurAiCard(aiCards[0]);
                 }}
               />
             );
@@ -66,7 +80,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     backgroundColor: "#aaa",
   },
+  aiCard: {
+    position: "absolute",
+    top: 20,
+    left: 145,
+  }
 });
+
+function playAiCard(card) {
+ 
+}
 
 function getCards() {
   const pData = require(cardsPath);
