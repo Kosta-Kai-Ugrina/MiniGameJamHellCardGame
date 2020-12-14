@@ -8,19 +8,31 @@ import {
   View,
   Button,
 } from "react-native";
-import { Audio } from "expo-av";
 import { render } from "react-dom";
 import IntroScreen from "./app/src/screens/Intro";
 import GameScreen from "./app/src/screens/Game";
-
-// async function playSound(sound) {
-//   console.log("Loading Sound");
-//   sound = await Audio.Sound.createAsync(require("./app/assets/music.mp3"));
-
-//   console.log("Playing Sound");
-//   await sound.playAsync();
-// }
+import GameOver from "./app/src/screens/GameOver";
 
 export default function App() {
-  return <GameScreen />;
+  const [startPressed, setStartPressed] = useState(false);
+  const [gameDone, setGameDone] = useState(0);
+  if (!startPressed) {
+    return (
+      <IntroScreen
+        onStartButtonClick={() => {
+          setStartPressed(true);
+        }}
+      />
+    );
+  } else if (gameDone == 0) {
+    return (
+      <GameScreen
+        onGameDone={(isWin) => {
+          setGameDone(isWin);
+        }}
+      />
+    );
+  } else {
+    return <GameOver isWin={gameDone == 1} />;
+  }
 }

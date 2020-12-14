@@ -12,7 +12,7 @@ const totalCardsInHand = 7;
 const cards = shuffleArray(getCards());
 const images = getImages();
 
-export default function GameScreen() {
+export default function GameScreen({ onGameDone }) {
   const [playerCards, setPlayerCards] = useState(
     cards.filter((val, index, arr) => {
       return index < totalCardsInHand;
@@ -27,20 +27,34 @@ export default function GameScreen() {
   const [score, setScore] = useState(0);
   const [rm, setRm] = useState(0);
   const [curAiCard, setCurAiCard] = useState(aiCards[0]);
-  console.log("playerCards\n", playerCards, "\n\n");
-  console.log("aiCards\n", aiCards, "\n\n");
+  console.log(
+    "playerCards\n",
+    playerCards.map((val) => val.name),
+    "\n\n"
+  );
+  console.log(
+    "aiCards\n",
+    aiCards.map((val) => val.name),
+    "\n\n"
+  );
 
   return (
     <ImageBackground source={background} style={styles.background}>
       <View style={styles.background}>
-
-        <View><Text style={styles.text}>{score} / {totalCardsInHand}</Text></View>
+        <View>
+          <Text style={styles.text}>
+            {score} / {totalCardsInHand}
+          </Text>
+        </View>
         <View style={styles.aiCard}>
           <Card
             key={parseInt(curAiCard.key)}
             name={curAiCard.name}
             combatStrength={curAiCard.combatStrength}
             image={images[parseInt(curAiCard.key) - 1]}
+            onPress={(combatStrength, name) => {
+              console.log("enemy card clicked");
+            }}
           />
         </View>
         <View style={styles.playerCardContainer}>
@@ -55,13 +69,16 @@ export default function GameScreen() {
                   if (combatStrength >= aiCards[0].combatStrength) {
                     setScore(score + 1);
                   }
-                  if (playerCards.length === 0)
-                    return <GameOver/>
-                  setPlayerCards(playerCards.filter((val) => (val.name !== name)));
+                  setPlayerCards(
+                    playerCards.filter((val) => val.name !== name)
+                  );
+                  console.log(playerCards.length);
+                  if (playerCards.length == 1) {
+                    onGameDone(score >= totalCardsInHand / 2 ? 1 : 2);
+                  }
                   setRm(rm + 1);
-                  setAiCards(aiCards.filter((val, index) => (index !== 0)));
+                  setAiCards(aiCards.filter((val, index) => index !== 0));
                   setCurAiCard(aiCards[0]);
-                 
                 }}
               />
             );
@@ -100,7 +117,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     backgroundColor: "#000000a0",
-  }
+  },
 });
 
 function getCards() {
