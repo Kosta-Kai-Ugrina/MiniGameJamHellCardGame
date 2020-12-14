@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { ImageBackground, StyleSheet, View, Text } from "react-native";
 import Card from "../Components/Card";
-import Win from "../screens/GameOver";
-import GameOver from "../screens/GameOver";
 
 const assetsPath = "../../assets/";
 const cardsPath = assetsPath + "cards.json";
@@ -18,7 +16,6 @@ export default function GameScreen({ onGameDone }) {
       return index < totalCardsInHand;
     })
   );
-
   const [aiCards, setAiCards] = useState(
     cards.filter((val, index, arr) => {
       return index >= totalCardsInHand && index < 2 * totalCardsInHand;
@@ -27,16 +24,6 @@ export default function GameScreen({ onGameDone }) {
   const [score, setScore] = useState(0);
   const [rm, setRm] = useState(0);
   const [curAiCard, setCurAiCard] = useState(aiCards[0]);
-  console.log(
-    "playerCards\n",
-    playerCards.map((val) => val.name),
-    "\n\n"
-  );
-  console.log(
-    "aiCards\n",
-    aiCards.map((val) => val.name),
-    "\n\n"
-  );
 
   return (
     <ImageBackground source={background} style={styles.background}>
@@ -66,19 +53,21 @@ export default function GameScreen({ onGameDone }) {
                 combatStrength={parseInt(data.combatStrength)}
                 image={images[parseInt(data.key) - 1]}
                 onPress={(combatStrength, name) => {
-                  if (combatStrength >= aiCards[0].combatStrength) {
+                  if (
+                    combatStrength >=
+                    aiCards[rm != 0 ? rm - 1 : 0].combatStrength
+                  ) {
+                    console.log("THE PLAYER HAS WON THE ROUND");
                     setScore(score + 1);
                   }
                   setPlayerCards(
                     playerCards.filter((val) => val.name !== name)
                   );
-                  console.log(playerCards.length);
                   if (playerCards.length == 1) {
                     onGameDone(score >= totalCardsInHand / 2 ? 1 : 2);
                   }
                   setRm(rm + 1);
-                  setAiCards(aiCards.filter((val, index) => index !== 0));
-                  setCurAiCard(aiCards[0]);
+                  setCurAiCard(aiCards[rm]);
                 }}
               />
             );
